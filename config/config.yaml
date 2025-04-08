@@ -1,0 +1,32 @@
+objective: "one-class"    # or "soft-boundary"
+nu: 0.1
+seed: 42
+# device: "cuda"
+
+train:
+  optimizer: "adam"
+  lr: 0.0001
+  n_epochs: 250
+  lr_milestones: [149]
+  batch_size: 200
+  weight_decay: 0.000001
+
+pretrain:
+  enabled: true
+  optimizer: "adam"
+  lr: 0.0001
+  n_epochs: 350
+  lr_milestones: [249]
+  batch_size: 200
+  weight_decay: 0.000001
+
+data:
+  dataset: "cifar10"
+  normal_class: 8
+  data_path: "./data/"   # adjust to your CIFAR10 data directory
+
+network:
+  net_name: "cifar10_LeNet"  # or "cifar10_LeNet_ELU"
+
+experiment:
+  xp_path: "./experiments/run1"
